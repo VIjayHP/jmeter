@@ -17,9 +17,12 @@ RUN   mkdir /jmeter \
       && wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-$JMETER_VERSION.tgz \
       && tar -xzf apache-jmeter-$JMETER_VERSION.tgz \
       && rm apache-jmeter-$JMETER_VERSION.tgz
+RUN DISPLAY=localhost:0
+RUN export DISPLAY
 # ADD all the plugins
 ADD jmeter-plugins/lib /jmeter/apache-jmeter-$JMETER_VERSION/lib
-
+# ADD the sample test
+ADD sample-test sample-test
 # Set JMeter Home
 ENV JMETER_HOME /jmeter/apache-jmeter-$JMETER_VERSION/
 
