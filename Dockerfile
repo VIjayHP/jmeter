@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-slim
 # JMeter version
-ARG JMETER_VERSION=3.3.20171030
+ARG JMETER_VERSION=3.2
 
 # Install few utilities
 RUN apt-get clean && \
